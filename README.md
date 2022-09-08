@@ -25,7 +25,11 @@ docker build -t yolo-base-workspace-image .
 
 ## Image
 
-The Dockerfile has been extensively commented to be self-explanatory. You can see it by yourself below:
+The Dockerfile has been extensively commented to be self-explanatory. You can see it below.
+
+In summary, Yolo is built on `ubuntu 22.04` with an user named `yolo` configured to be used as the default user. Root privileges are managed via `sudo` and `zsh` (with `oh-my-zsh`) is used as default shell.
+
+Your repositories will be cloned in `/home/yolo/workspace`.
 
 ```Dockerfile
 # All environments will be Ubuntu-based (Ubuntu 22.04)
