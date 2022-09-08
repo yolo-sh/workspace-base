@@ -27,6 +27,7 @@ RUN set -euo pipefail \
     man-db \
     manpages-posix \
     nano \
+    socat \
     software-properties-common \
     sudo \
     tzdata \
