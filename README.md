@@ -1,6 +1,6 @@
 # Workspace / Base
 
-This repository contains the source code of the `ghcr.io/yolo-sh/workspace-base` Docker image. This image is the base image that powers all the environments created via the [CLI](https://github.com/yolo-sh/cli).
+This repository contains the source code of the Docker image name `ghcr.io/yolo-sh/workspace-base`. This image is the base image that powers all the environments created via the [CLI](https://github.com/yolo-sh/cli).
 
 ## Table of contents
 - [Requirements](#requirements)
