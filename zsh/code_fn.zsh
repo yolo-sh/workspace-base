@@ -8,13 +8,16 @@ code () {
     return
   fi
 
-  local vscodeIPCSocket=$(echo /tmp/vscode-ipc-*.sock(=oc[1]N))
+  if [[ -z "${VSCODE_IPC_HOOK_CLI}" ]]; then
+    local vscodeIPCSocket=$(echo /tmp/vscode-ipc-*.sock(=oc[1]N))
 
-  if [[ -z ${vscodeIPCSocket} ]]; then
-    echo "VSCode needs to be open and connected to your environment first.\n\nPlease, use the 'yolo <cloud_provider> edit' command locally."
-    return
+    if [[ -z ${vscodeIPCSocket} ]]; then
+      echo "VSCode needs to be open and connected to your environment first.\n\nPlease, use the 'yolo <cloud_provider> edit' command locally."
+      return
+    fi
+
+    export VSCODE_IPC_HOOK_CLI=${vscodeIPCSocket}
   fi
 
-  export VSCODE_IPC_HOOK_CLI=${vscodeIPCSocket}
   ${vscodeCLI} $@
 }
