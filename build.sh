@@ -24,8 +24,8 @@ docker run -it --rm --privileged tonistiigi/binfmt --install all
 # will return an error when the builder already exists.
 docker buildx create --name "${BUILDER_NAME}" --use || true
 
-cat /tmp/docker-password | docker login --username jeremylevy --password-stdin
+cat /tmp/docker-password | docker login ghcr.io --username jeremylevy --password-stdin
 
 log ""
 
-docker buildx build --platform linux/amd64,linux/arm64 -t yolosh/workspace-base:"${IMAGE_TAG_NAME}" -t yolosh/workspace-base:latest --push .
+docker buildx build --platform linux/amd64,linux/arm64 -t ghcr.io/yolo-sh/workspace-base:"${IMAGE_TAG_NAME}" -t ghcr.io/yolo-sh/workspace-base:latest --push .

@@ -1,6 +1,8 @@
 # All environments will be Ubuntu-based (Ubuntu 22.04)
 FROM buildpack-deps:jammy
 
+LABEL org.opencontainers.image.source=https://github.com/yolo-sh/workspace-base
+
 ARG DEBIAN_FRONTEND=noninteractive
 
 # RUN will use bash
