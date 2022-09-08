@@ -1,8 +1,8 @@
 #!/bin/bash
-# Yolo base environment docker image builder
+# Yolo base workspace docker image builder
 set -euo pipefail
 
-BUILDER_NAME="yolo-base-env-image-builder"
+BUILDER_NAME="yolo-base-workspace-image-builder"
 
 log () {
   echo -e "${1}" >&2
@@ -16,11 +16,11 @@ fi
 IMAGE_TAG_NAME="${1}"
 
 # Install emulators to cross-build our base
-# dev env image for different architectures
+# workspace image for different architectures
 docker run -it --rm --privileged tonistiigi/binfmt --install all
 
 # Create and use buildx builder.
-# Drop errors given that the command "buildx create"
+# We drop errors given that the command "buildx create"
 # will return an error when the builder already exists.
 docker buildx create --name "${BUILDER_NAME}" --use || true
 
@@ -28,4 +28,4 @@ cat /tmp/docker-password | docker login --username jeremylevy --password-stdin
 
 log ""
 
-docker buildx build --platform linux/amd64,linux/arm64 -t yolosh/base-env:"${IMAGE_TAG_NAME}" -t yolosh/base-env:latest --push .
+docker buildx build --platform linux/amd64,linux/arm64 -t yolosh/workspace-base:"${IMAGE_TAG_NAME}" -t yolosh/workspace-base:latest --push .
