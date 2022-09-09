@@ -56,6 +56,7 @@ RUN set -euo pipefail \
     curl \
     git \
     gnupg \
+    less \
     locales \
     lsb-release \
     man-db \

@@ -2,6 +2,7 @@
 FROM buildpack-deps:jammy
 
 LABEL org.opencontainers.image.source=https://github.com/yolo-sh/workspace-base
+LABEL org.opencontainers.image.description="Initial release"
 
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -24,6 +25,7 @@ RUN set -euo pipefail \
     curl \
     git \
     gnupg \
+    less \
     locales \
     lsb-release \
     man-db \
