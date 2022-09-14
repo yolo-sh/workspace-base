@@ -1,0 +1,12 @@
+[Unit]
+Description=The script that initialize your environment container.
+After=docker.service
+StartLimitIntervalSec=0
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/yolo-init.sh
+ExecReload=/usr/bin/yolo-init.sh
+
+[Install]
+WantedBy=multi-user.target
