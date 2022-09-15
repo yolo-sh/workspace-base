@@ -58,7 +58,7 @@ RUN systemctl mask systemd-udevd.service \
   sys-kernel-tracing.mount
 
 # Make use of stopsignal (instead of sigterm) 
-# to stop systemd containers.
+# to stop systemd containers
 STOPSIGNAL SIGRTMIN+3
 
 # Install init service in systemd
