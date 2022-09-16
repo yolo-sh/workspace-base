@@ -26,7 +26,7 @@ esac
 
 log "Installing the yolo container agent"
 
-YOLO_AGENT_VERSION="0.0.1"
+YOLO_AGENT_VERSION="0.0.2"
 YOLO_AGENT_TMP_ARCHIVE_PATH="/tmp/yolo-agent-container.tar.gz"
 YOLO_AGENT_NAME="yolo-agent-container"
 YOLO_AGENT_DIR="/usr/local/bin"
