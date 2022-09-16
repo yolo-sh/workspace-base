@@ -46,16 +46,18 @@ RUN set -euo pipefail \
     unzip \
     vim \
     wget \
-  && apt-get clean && rm --recursive --force /var/lib/apt/lists/* /tmp/* \
-  && echo "ReadKMsg=no" >> /etc/systemd/journald.conf
+  && apt-get clean && rm --recursive --force /var/lib/apt/lists/* /tmp/*
 
-# Mask unused services
-RUN systemctl mask systemd-udevd.service \
-  systemd-udevd-kernel.socket \
-  systemd-udevd-control.socket \
-  systemd-modules-load.service \
-  sys-kernel-debug.mount \
-  sys-kernel-tracing.mount
+# Configure systemd
+RUN echo "ReadKMsg=no" >> /etc/systemd/journald.conf \
+  && { echo '#!/bin/sh'; \
+    echo 'exit 0'; } > /usr/sbin/policy-rc.d \
+  && systemctl mask systemd-udevd.service \
+    systemd-udevd-kernel.socket \
+    systemd-udevd-control.socket \
+    systemd-modules-load.service \
+    sys-kernel-debug.mount \
+    sys-kernel-tracing.mount
 
 # Make use of stopsignal (instead of sigterm) 
 # to stop systemd containers
