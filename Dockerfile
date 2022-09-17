@@ -46,7 +46,7 @@ RUN set -euo pipefail \
     unzip \
     vim \
     wget \
-  && apt-get clean && rm --recursive --force /var/lib/apt/lists/* /tmp/*
+  && apt-get clean && rm --recursive --force /tmp/*
 
 # Configure systemd
 RUN echo "ReadKMsg=no" >> /etc/systemd/journald.conf \
@@ -116,7 +116,7 @@ WORKDIR $HOME
 RUN set -euo pipefail \
   && sudo apt-get --assume-yes --quiet --quiet update \
   && sudo apt-get --assume-yes --quiet --quiet install zsh \
-  && sudo apt-get clean && sudo rm --recursive --force /var/lib/apt/lists/* /tmp/* \
+  && sudo apt-get clean && sudo rm --recursive --force /tmp/* \
   && mkdir .zfunc
 
 # Install OhMyZSH and some plugins
