@@ -22,6 +22,11 @@ case $(uname -m) in
   armv8l)     INSTANCE_ARCH="arm64" ;;
 esac
 
+# Auto-start systemd services installed via packages
+echo '#!/bin/sh' > /usr/sbin/policy-rc.d
+echo '' >> /usr/sbin/policy-rc.d
+echo 'exit 0' >> /usr/sbin/policy-rc.d
+
 # -- Install the yolo container agent
 
 log "Installing the yolo container agent"

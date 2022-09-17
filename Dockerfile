@@ -50,8 +50,6 @@ RUN set -euo pipefail \
 
 # Configure systemd
 RUN echo "ReadKMsg=no" >> /etc/systemd/journald.conf \
-  && { echo '#!/bin/sh'; \
-    echo 'exit 0'; } > /usr/sbin/policy-rc.d \
   && systemctl mask systemd-udevd.service \
     systemd-udevd-kernel.socket \
     systemd-udevd-control.socket \
