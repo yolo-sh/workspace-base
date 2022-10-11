@@ -102,11 +102,3 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-if [[ -o login ]]; then
-  cd ~/workspace
-
-  if [[ "$(find . -maxdepth 1 -mindepth 1 -type d | wc -l)" -eq 1 ]]; then
-    cd "$(find . -maxdepth 1 -mindepth 1 -type d)"
-  fi
-fi
