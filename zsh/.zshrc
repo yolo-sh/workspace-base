@@ -73,7 +73,6 @@ ZSH_THEME="af-magic"
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 fpath+=~/.zfunc
-autoload -Uz code
 
 source $ZSH/oh-my-zsh.sh
 
